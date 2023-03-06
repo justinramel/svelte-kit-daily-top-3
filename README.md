@@ -1,4 +1,15 @@
-# create-svelte
+# SvelteKit Daily Top 3
+
+
+## Introduction
+
+This the demo code used in a series of articles:
+
+- [Introduction to SvelteKit: Getting Started](https://blog.justinramel.com/introduction-to-sveltekit-getting-started)
+
+
+
+## create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
@@ -36,4 +47,3 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
-# svelte-kit-daily-top-3
