@@ -1,24 +1,20 @@
-import type { PageServerLoad } from './$types';
-import { prisma } from '../../lib/prisma';
-import type { Top3 } from '@prisma/client';
+import type { PageServerLoad, Actions } from './$types';
+import { createTop3, getTop3, updateTodo } from '../../lib/prisma';
+import type { Todo } from '@prisma/client';
 
 export const load = (async () => {
-	const top3 = await prisma.top3.findFirst({
-		where: {
-			createdAt: {
-				equals: new Date()
-			}
-		},
-		include: {
-			todos: {
-				orderBy: {
-					id: 'asc'
-				}
-			}
-		}
-	});
+	return await getTop3();
+}) satisfies PageServerLoad<{ todos: Todo[] }>;
 
-	if (!top3) throw Error('NO DATA!');
-
-	return top3;
-}) satisfies PageServerLoad<Top3>;
+export const actions = {
+	create: async ({ request }) => {
+		const data = await request.formData();
+		return createTop3((data.getAll('todo') as string[]) ?? []);
+	},
+	update: async ({ request }) => {
+		const data = await request.formData();
+		const id = Number(data.get('id'));
+		const complete = data.get('todo') === 'on';
+		return updateTodo(id, complete);
+	}
+} satisfies Actions;
