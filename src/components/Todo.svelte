@@ -8,26 +8,23 @@
   let form;
 </script>
 
-<div class="todo">
-<!--  <label for={`todo-${todo.id}`}>-->
-<!--    <CheckBox label={index.toString()} complete={todo.complete} />-->
-<!--  </label>-->
+<div class="relative flex">
+  <div class="flex items-center gap-2">
+    <label for={`todo-${todo.id}`}>
+      <CheckBox label={index.toString()} complete={todo.complete} />
+    </label>
 
+    <div class="ml-3 text-lg flex items-center">
+      <form method="POST" action="?/update" bind:this={form}>
+        <input name="id" type="hidden" bind:value={todo.id} />
+        <input id={`todo-${todo.id}`} name="todo" type="checkbox" bind:checked={todo.complete}
+               on:change={() => form.requestSubmit()} class="hidden" />
+      </form>
 
-
-  <form method="POST" action="?/update" bind:this={form}>
-    <input name="id" type="hidden" bind:value={todo.id} />
-    <input id={`todo-${todo.id}`} name="todo" type="checkbox" bind:checked={todo.complete} on:change={() => form.requestSubmit()} />
-  </form>
-
-  <label for={`todo-${todo.id}`}>
-    {todo.title}
-  </label>
+      <label for={`todo-${todo.id}`} class:line-through="{todo.complete}">
+        {todo.title}
+      </label>
+    </div>
+  </div>
 </div>
-
-<style>
-  .todo {
-      display: flex;
-  }
-</style>
 
