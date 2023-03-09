@@ -6,7 +6,8 @@
 This the demo code used in a series of articles:
 
 - [Introduction to SvelteKit: Getting Started](https://blog.justinramel.com/introduction-to-sveltekit-getting-started)
-
+- [SvelteKit - Create & Update](https://blog.justinramel.com/sveltekit-create-update)
+- [SvelteKit - Tailwind CSS Setup](https://blog.justinramel.com/sveltekit-tailwind-css-setup)
 
 
 ## create-svelte
