@@ -7,12 +7,14 @@
 </script>
 
 
-<div>
-  <h1>Top 3</h1>
+<div class="mx-auto max-w-2xl text-center p-16">
+  <h1 class="text-4xl font-bold text-gray-900">Top 3</h1>
 
-  {#if data.todos.length > 0}
-    <Todos todos={data.todos} />
-  {:else}
-    <NewTop3 />
-  {/if}
+  <div class="mt-8">
+    {#if data.todos.length > 0}
+      <Todos todos={data.todos} />
+    {:else}
+      <NewTop3 />
+    {/if}
+  </div>
 </div>
